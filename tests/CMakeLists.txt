@@ -10,8 +10,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 # Build test executable
-add_executable(test_math
+add_executable(
     test_vec.cpp
+    test_mat.cpp
 )
 
 # Include your math library headers
