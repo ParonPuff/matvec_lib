@@ -1,4 +1,7 @@
+#include "vec3.hpp"
+#include "vec4.hpp"
 namespace gfx{
+  using namespace gfx;
   inline vec3 operator+(const vec3& a,const vec3& b) {
     return new vec4(
         a.x+b.x,

@@ -1,8 +1,9 @@
 #define CATCH_CONFIG_MAIN
-#include "catch_amalgamated.hpp"
+#include <catch2/catch_test_macros.hpp>
+#include <catch2/matchers/catch_matchers_floating_point.hpp>
 
-#include "../gfx::vec4.hpp"
-#include "../gfx::vec3.hpp"
+#include "../src/vec3.hpp"
+
 
 TEST_CASE("vec3 constructors work"){
   vec3 a;
@@ -21,8 +22,8 @@ TEST_CASE("vec3 addition"){
   vec3 b(4,5,6);
   vec3 c = a+b;
 
-  REQUIRE(c.x == APPROX(5))
-  REQUIRE(c.y == APPROX(7))
-  REQUIRE(c.z == APPROX(9))
+  REQUIRE_THAT(c.x, Catch::Matchers::WithinRel(5.0f));
+  REQUIRE_THAT(c.y, Catch::Matchers::WithinRel(7.0f));
+  REQUIRE_THAT(c.z, Catch::Matchers::WithinRel(9.0f));
 }
 

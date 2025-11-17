@@ -1,4 +1,8 @@
+#ifndef VEC4
+#define VEC4
+#include "vec3.hpp"
 namespace gfx{
+  using namespace gfx;
   struct vec4{
     float x,y,z,w;
 
@@ -9,3 +13,4 @@ namespace gfx{
       : x(v.x),y(v.y),z(v.z),w(w) {}
   };
 }
+#endif
