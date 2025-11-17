@@ -10,16 +10,17 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 # Build test executable
-add_executable(
+add_executable(test_math
     test_vec.cpp
-    test_mat.cpp
+    #test_mat.cpp
 )
+
+# Link Catch2 library (with main included)
+target_link_libraries(test_math PRIVATE Catch2::Catch2WithMain)
 
 # Include your math library headers
 target_include_directories(test_math PRIVATE ../src)
 
-# Link Catch2 library (with main included)
-target_link_libraries(test_math PRIVATE Catch2::Catch2WithMain)
 
 # Enable automatic test discovery
 include(Catch)
