@@ -14,6 +14,13 @@ namespace matvec{
           z+other.z
       );
     }
+    inline vec3 operator-(const vec3& other) {
+      return vec3(
+          x-other.x,
+          y-other.y,
+          z-other.z
+      );
+    }
 
     inline vec3 operator*(float s){
       return vec3(
@@ -23,5 +30,8 @@ namespace matvec{
       );
     }
 
+    // inline void operator*=(float s){
+    //   this = this * s;
+    // }
   };
 }

@@ -12,7 +12,7 @@ FetchContent_MakeAvailable(Catch2)
 # Build test executable
 add_executable(test_math
     test_vec.cpp
-    #test_mat.cpp
+    test_mat.cpp
 )
 
 # Link Catch2 library (with main included)
