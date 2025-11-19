@@ -19,7 +19,7 @@ add_executable(test_math
 target_link_libraries(test_math PRIVATE Catch2::Catch2WithMain)
 
 # Include your math library headers
-target_include_directories(test_math PRIVATE ../src)
+target_include_directories(test_math PRIVATE ../include)
 
 
 # Enable automatic test discovery
