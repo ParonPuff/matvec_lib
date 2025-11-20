@@ -55,7 +55,7 @@ namespace matvec{
       );
     }
 
-    inline mat4 identity(){
+    static inline mat4 identity(){
       return mat4(
         1,0,0,0,
         0,1,0,0,
@@ -64,7 +64,7 @@ namespace matvec{
       );
     }
 
-    inline mat4 translate(float dx,float dy,float dz) {
+    static inline mat4 translate(float dx,float dy,float dz) {
       return mat4(
         1,0,0,dx,
         0,1,0,dy,
@@ -73,7 +73,7 @@ namespace matvec{
       );
     }
 
-    inline mat4 rotateX(float angle){
+    static inline mat4 rotateX(float angle){
       return mat4(
         1,0,0,0,
         0,std::cos(angle),-std::sin(angle),0,
@@ -81,8 +81,8 @@ namespace matvec{
         0,0,0,1
       );
     };
-  };
-    inline mat4 rotateY(float angle){
+
+    static inline mat4 rotateY(float angle){
       return mat4(
         std::cos(angle),0,std::sin(angle),0,
         0,1,0,0,
@@ -90,7 +90,7 @@ namespace matvec{
         0,0,0,1
       );
     };
-    inline mat4 rotateZ(float angle){
+    static inline mat4 rotateZ(float angle){
       return mat4(
         std::cos(angle),-std::sin(angle),0,0,
         std::sin(angle),std::cos(angle),0,0,
@@ -98,4 +98,5 @@ namespace matvec{
         0,0,0,1
       );
     };
+  };
 }
