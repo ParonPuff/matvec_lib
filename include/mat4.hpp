@@ -1,5 +1,6 @@
 #pragma once
 #include "./vec4.hpp"
+#include <cmath>
 namespace matvec{
   struct mat4{
     float data[16];
@@ -45,5 +46,56 @@ namespace matvec{
           data[3] * v.x + data[7] * v.y + data[11] * v.z + data[15] * v.w
       );
     }
+    inline mat4 operator*(const float s){
+      return mat4(
+        data[0]*s,data[1]*s,data[2]*s,data[3]*s,
+        data[4]*s,data[5]*s,data[6]*s,data[7]*s,
+        data[8]*s,data[9]*s,data[10]*s,data[11]*s,
+        data[12]*s,data[13]*s,data[14]*s,data[15]*s
+      );
+    }
+
+    inline mat4 identity(){
+      return mat4(
+        1,0,0,0,
+        0,1,0,0,
+        0,0,1,0,
+        0,0,0,1
+      );
+    }
+
+    inline mat4 translate(float dx,float dy,float dz) {
+      return mat4(
+        1,0,0,dx,
+        0,1,0,dy,
+        0,0,1,dz,
+        0,0,0,1
+      );
+    }
+
+    inline mat4 rotateX(float angle){
+      return mat4(
+        1,0,0,0,
+        0,std::cos(angle),-std::sin(angle),0,
+        0,std::sin(angle),std::cos(angle),0,
+        0,0,0,1
+      );
+    };
   };
+    inline mat4 rotateY(float angle){
+      return mat4(
+        std::cos(angle),0,std::sin(angle),0,
+        0,1,0,0,
+        -std::sin(angle),0,std::cos(angle),0,
+        0,0,0,1
+      );
+    };
+    inline mat4 rotateZ(float angle){
+      return mat4(
+        std::cos(angle),-std::sin(angle),0,0,
+        std::sin(angle),std::cos(angle),0,0,
+        0,0,1,0,
+        0,0,0,1
+      );
+    };
 }
